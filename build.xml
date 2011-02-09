@@ -93,6 +93,10 @@
         <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/gxp/src/theme">
             <fileset dir="app/static/externals/gxp/src/theme"/>
         </copy>
+        <!-- copy PrintPreview resources -->
+        <copy todir="${build}/${ant.project.name}/WEB-INF/app/static/externals/PrintPreview/resources">
+            <fileset dir="app/static/externals/PrintPreview/resources"/>
+        </copy>
     </target>
 
     <target name="debug">
