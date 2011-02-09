@@ -56,7 +56,7 @@
             OpenLayers.Layer.WMS.prototype.DEFAULT_PARAMS.transparent = true;
 
             var app = new gxp.Viewer({
-
+                proxy: "proxy/?url=",
                 portalItems: [{
                     region: "center",
                     layout: "border",
@@ -178,7 +178,7 @@
                         fixed: true,
                         type: "OpenLayers.Layer",
                         args: [
-                            "None", {visibility: false}
+                            "Aucun", {visibility: false}
                         ]
                     }],
                     center: [1294900, 19763],
