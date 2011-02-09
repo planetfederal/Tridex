@@ -32,7 +32,8 @@
 
         <!-- gxp resources -->
         <link rel="stylesheet" type="text/css" href="externals/gxp/src/theme/all.css" />
-        <script type="text/javascript" src="script/gxp.js"></script> 
+        <script type="text/javascript" src="script/gxp.js"></script>
+        <script type="text/javascript" src="externals/gxp/src/script/locale/fr.js"></script> 
         
         <!-- proj4js resources -->
         <!--
@@ -46,8 +47,9 @@
 
         <script type="text/javascript">
 
+            GeoExt.Lang.set("fr");
             Ext.QuickTips.init();
-            Ext.BLANK_IMAGE_URL = "theme/app/img/blank.gif";
+            Ext.BLANK_IMAGE_URL = "externals/openlayers/img/blank.gif";
             OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
             OpenLayers.ImgPath = "externals/openlayers/img/";
             OpenLayers.Layer.WMS.prototype.DEFAULT_PARAMS.transparent = true;
@@ -57,17 +59,32 @@
                 portalItems: [{
                     region: "center",
                     layout: "border",
-                    items: ["map"]
+                    items: [
+                        {
+                            region: "west",
+                            width: 200,
+                            id: "tree",
+                            title: "Couches"
+                        },
+                        "map"
+                    ]
                 }],
+                tools: [
+                    {
+                        ptype: "gxp_layertree",
+                        outputConfig: {
+                            id: "layertree",
+                            tbar: []
+                        },
+                        outputTarget: "tree"
+                    }
+                ],
                 mapItems: [{
                     xtype: "gx_zoomslider",
                     vertical: true,
                     height: 100
                 }],
                 sources: {
-                    osm: {
-                        ptype: "gxp_osmsource"
-                    },
                     google: {
                         ptype: "gxp_googlesource"
                     },
