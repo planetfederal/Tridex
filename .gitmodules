@@ -7,3 +7,6 @@
 [submodule "app/static/externals/openlayers"]
 	path = app/static/externals/openlayers
 	url = https://github.com/openlayers/openlayers.git
+[submodule "app/static/externals/PrintPreview"]
+	path = app/static/externals/PrintPreview
+	url = git://github.com/GeoNode/PrintPreview.git
