@@ -72,6 +72,8 @@
             var params = Ext.urlDecode(window.location.search.substring(1));
             if (params.lang) {
                 GeoExt.Lang.set(params.lang);
+            } else {
+                GeoExt.Lang.set("en");
             }
             Ext.QuickTips.init();
             Ext.BLANK_IMAGE_URL = "externals/openlayers/theme/default/img/blank.gif";
