@@ -33,7 +33,6 @@
         <!-- gxp resources -->
         <link rel="stylesheet" type="text/css" href="externals/gxp/src/theme/all.css" />
         <script type="text/javascript" src="script/gxp.js"></script>
-        <script type="text/javascript" src="externals/gxp/src/script/locale/fr.js"></script> 
         
         <!-- proj4js resources -->
         <!--
@@ -52,7 +51,28 @@
 
         <script type="text/javascript">
 
-            GeoExt.Lang.set("fr");
+            var i18n = function(obj, key) {
+                return GeoExt.Lang.dict[GeoExt.Lang.locale][obj][key]
+            };
+
+            GeoExt.Lang.add("en", {
+                "app": {
+                    "layersTitle": "Layers",
+                    "legendTitle": "Legend"
+                }
+            });
+
+            GeoExt.Lang.add("fr", {
+                "app": {
+                    "layersTitle": "Couches",
+                    "legendTitle": "Légende"
+                }
+            });
+
+            var params = Ext.urlDecode(window.location.search.substring(1));
+            if (params.lang) {
+                GeoExt.Lang.set(params.lang);
+            }
             Ext.QuickTips.init();
             Ext.BLANK_IMAGE_URL = "externals/openlayers/theme/default/img/blank.gif";
             OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
@@ -79,9 +99,7 @@
                                 {
                                     region: "center",
                                     id: "tree",
-                                    tbar: [],
-                                    border: false,
-                                    title: "Couches"
+                                    border: false
                                 }, {
                                     region: "south",
                                     height: 200,
@@ -98,12 +116,14 @@
                         ptype: "gxp_layertree",
                         outputConfig: {
                             id: "layertree",
+                            title: i18n("app", "layersTitle"),
                             tbar: []
                         },
-                        outputTarget: "tree"
+                        outputTarget: "tree",
                     }, {
                         ptype: "gxp_legend",
-                        outputTarget: 'legend'
+                        outputTarget: 'legend',
+                        outputConfig: {title: i18n("app", "legendTitle")}
                     }, {
                         ptype: "gxp_addlayers",
                         actionTarget: "layertree.tbar"
@@ -153,6 +173,7 @@
                 },
                 map: {
                     id: "map",
+                    border: false,
                     region: "center",
                     projection: "EPSG:900913",
                     units: "m",
