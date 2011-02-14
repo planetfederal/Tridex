@@ -3,6 +3,22 @@
   font-family: tahoma,arial,verdana,sans-serif;
   font-size: 14px;
   font-weight: bold;
-  text-align: center;
+  margin-left: 10px;
   margin-top: 3px;
+}
+
+.inline-list {
+  list-style-type: none;
+}
+.inline-list li {
+  margin-top: 3px;
+  color: #333333;
+  font-family: tahoma,arial,verdana,sans-serif;
+  font-size: 12px;
+  display: inline;
+  float: left;
+}
+
+.pipe {
+  width: 9px;
 }

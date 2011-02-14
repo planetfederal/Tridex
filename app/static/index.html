@@ -90,7 +90,16 @@
                             region: "north",
                             border: false,
                             height: 25,
-                            html: "<div class='appTitle'>The Place to Build the Future</div>"
+                            layout: "hbox",
+                            defaults: {border: false, plain: true},
+                            layoutConfig: {
+                                align: 'stretch',
+                                pack: 'start'
+                            },
+                            items: [
+                                {flex: 1, html: "<div class='appTitle'>The Place to Build the Future</div>"},
+                                {width: 150, html: '<ul class="inline-list"><li><a href="?lang=en">English</a></li><li class="pipe">&nbsp;</li><li><a href="?lang=fr">Français</a></li></ul>'}
+                            ]
                         }, {
                             region: "west",
                             border: false,
