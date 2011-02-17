@@ -105,6 +105,11 @@
                         }, {
                             region: "west",
                             border: false,
+                            layout: "border",
+                            split: true,
+                            collapsible: true,
+                            collapseMode: "mini",
+                            header: false,
                             width: 250,
                             items: [
                                 {
@@ -114,8 +119,10 @@
                                 }, {
                                     region: "south",
                                     height: 200,
+                                    autoScroll: true,
                                     border: false,
-                                    id: "legend"
+                                    id: "legend",
+                                    title: i18n("app", "legendTitle")
                                 }
                             ]
                         },
@@ -134,7 +141,7 @@
                     }, {
                         ptype: "gxp_legend",
                         outputTarget: 'legend',
-                        outputConfig: {title: i18n("app", "legendTitle")}
+                        outputConfig: {title: null}
                     }, {
                         ptype: "gxp_addlayers",
                         actionTarget: "layertree.tbar"
@@ -204,6 +211,12 @@
                         name: "SATELLITE",
                         group: "background",
                         visibility: false
+                    }, {
+                        source: "gabon",
+                        name: "tridex:road_area"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:road_line"
                     }, {
                         source: "gabon",
                         name: "tridex:chemin"
