@@ -105,7 +105,7 @@
                         }, {
                             region: "west",
                             border: false,
-                            layout: "border",
+                            layout: "accordion",
                             split: true,
                             collapsible: true,
                             collapseMode: "mini",
@@ -114,11 +114,12 @@
                             items: [
                                 {
                                     region: "center",
+                                    autoScroll: true,
+                                    title: i18n("app", "layersTitle"),
                                     id: "tree",
                                     border: false
                                 }, {
                                     region: "south",
-                                    height: 200,
                                     autoScroll: true,
                                     border: false,
                                     id: "legend",
@@ -134,7 +135,6 @@
                         ptype: "gxp_layertree",
                         outputConfig: {
                             id: "layertree",
-                            title: i18n("app", "layersTitle"),
                             tbar: []
                         },
                         outputTarget: "tree",
