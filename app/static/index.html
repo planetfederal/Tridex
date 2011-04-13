@@ -6,14 +6,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="shortcut icon" href="theme/app/img/favicon.ico">
         
-        <!-- Google Earth resources-->
-        <!--
-            Note: Replace the key below with your own key before deploying. 
-            See http://code.google.com/apis/maps/signup.html for information.
-        <script src="http://www.google.com/jsapi?key=ABQIAAAAeDjUod8ItM9dBg5_lz0esxTnme5EwnLVtEDGnh-lFVzRJhbdQhQBX5VH8Rb3adNACjSR5kaCLQuBmw"></script>
-        <script type="text/javascript">google&&google.load("earth", "1");</script>
-        -->
-
         <!-- Ext resources -->
         <link rel="stylesheet" type="text/css" href="externals/ext/resources/css/ext-all.css" />
         <link rel="stylesheet" type="text/css" href="externals/ext/resources/css/xtheme-gray.css" />
@@ -126,8 +118,22 @@
                                     title: i18n("app", "legendTitle")
                                 }
                             ]
-                        },
-                        "map"
+                        }, {
+                            region: "center",
+                            layout: "card",
+                            id: "panel",
+                            tbar: [],
+                            defaults: {
+                                border: false
+                            },
+                            items: [
+                                "map", {
+                                    xtype: 'gxp_googleearthpanel',
+                                    mapPanel: "map"
+                                }
+                            ],
+                            activeItem: 0
+                        }
                     ]
                 }],
                 tools: [
@@ -155,20 +161,32 @@
                         ptype: "gxp_zoomtolayerextent",
                         actionTarget: {target: "layertree.contextMenu", index: 0}
                     }, {
-                        ptype: "gxp_zoom"
+                        ptype: "gxp_zoom",
+                        actionTarget: "panel.tbar"
                     }, {
-                        ptype: "gxp_navigation"
+                        ptype: "gxp_navigation",
+                        actionTarget: "panel.tbar"
                     }, {
-                        ptype: "gxp_zoomtoextent"
+                        ptype: "gxp_zoomtoextent",
+                        actionTarget: "panel.tbar"
                     }, {
-                        ptype: "gxp_navigationhistory"
+                        ptype: "gxp_navigationhistory",
+                        actionTarget: "panel.tbar"
                     }, {
-                        ptype: "gxp_wmsgetfeatureinfo"
+                        ptype: "gxp_wmsgetfeatureinfo",
+                        actionTarget: "panel.tbar"
                     }, {
-                        ptype: "gxp_measure"
+                        ptype: "gxp_measure",
+                        actionTarget: "panel.tbar"
                     }, {
                         ptype: "gxp_print",
+                        actionTarget: "panel.tbar",
                         printService: "/geoserver/pdf/"
+                    }, {
+                        ptype: "gxp_googleearth",
+                        actionTarget: "panel.tbar",
+                        apiKey: 'ABQIAAAATAm4oKT5m8cW4onm-2TxChQ2T1wbJWJepShu4qGcr7RZnG8xWRRqlE4x094ZdbzxFVgq1MmsBY8y-Q'
+                        /*apiKey: 'ABQIAAAAeDjUod8ItM9dBg5_lz0esxTnme5EwnLVtEDGnh-lFVzRJhbdQhQBX5VH8Rb3adNACjSR5kaCLQuBmw'*/
                     }
                 ],
                 mapItems: [{
@@ -192,7 +210,6 @@
                 map: {
                     id: "map",
                     border: false,
-                    region: "center",
                     projection: "EPSG:900913",
                     units: "m",
                     maxResolution: 156543.0339,
