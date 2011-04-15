@@ -9,6 +9,7 @@ Tridex.plugins.NestedLayerTree = Ext.extend(gxp.plugins.LayerTree, {
         return {
             text: text,
             expanded: true,
+            iconCls: "gxp-folder",
             nodeType: 'gx_layercontainer', 
             loader: new GeoExt.tree.LayerLoader({
                 store: this.target.mapPanel.layers,
@@ -20,39 +21,31 @@ Tridex.plugins.NestedLayerTree = Ext.extend(gxp.plugins.LayerTree, {
     },
 
     addOutput: function(config) {
-        var treeRoot = new Ext.tree.TreeNode({
-            text: this.rootNodeText,
-            expanded: true,
-            isTarget: false,
-            allowDrop: false
+        var treePanel = Tridex.plugins.NestedLayerTree.superclass.addOutput.call(this, arguments);
+        treePanel.enableDD = false;
+        var root = treePanel.getRootNode();
+        var node1 = new Ext.tree.TreeNode({
+            text: "Province: de l' Estuaire",
+            expanded: true
         });
-        treeRoot.appendChild({text: "Province: de l' Estuaire", expanded: true,
-            children: [
-                this.createGroup("Infrastructure", "P1"),
-                this.createGroup("Les Détails Des Terres", "P2"),
-                this.createGroup("Frontières", "P3"),
-                this.createGroup("Point d'intérêt", "P4")
-            ]
+        node1.appendChild(this.createGroup("Infrastructure", "P1"));
+        node1.appendChild(this.createGroup("Les Détails Des Terres", "P2"));
+        node1.appendChild(this.createGroup("Frontières", "P3"));
+        node1.appendChild(this.createGroup("Point d'intérêt", "P4"));
+        var node2 = new Ext.tree.TreeNode({
+            text: "Pays: Gabon",
+            expanded: true
         });
-        treeRoot.appendChild({text: "Pays: Gabon", expanded: true,
-            children: [
-                this.createGroup("Infrastructure", "C1"),
-                this.createGroup("Les Détails Des Terres", "C2"),
-                this.createGroup("Frontières", "C3"),
-                this.createGroup("Point d'intérêt", "C4")
-            ]
-        });
-
-        config = Ext.apply({
-            xtype: "treepanel",
-            root: treeRoot,
-            rootVisible: false,
-            border: false,
-            enableDD: true,
-        }, config || {});
-
-        var layerTree = gxp.plugins.LayerTree.superclass.addOutput.call(this, config);
-        return layerTree;
+        node2.appendChild(this.createGroup("Infrastructure", "C1"));
+        node2.appendChild(this.createGroup("Les Détails Des Terres", "C2"));
+        node2.appendChild(this.createGroup("Frontières", "C3"));
+        node2.appendChild(this.createGroup("Point d'intérêt", "C4"));
+        var overlays = root.childNodes[0];
+        var baseLayers = root.childNodes[1];
+        root.removeChild(overlays);
+        root.insertBefore(node1, baseLayers);
+        root.insertBefore(node2, baseLayers);
+        return treePanel;
     }
 
 });
