@@ -5,6 +5,14 @@ Tridex.plugins.NestedLayerTree = Ext.extend(gxp.plugins.LayerTree, {
     /** api: ptype = app_nestedlayertree */
     ptype: "app_nestedlayertree",
 
+    /** api: config[groupConfig]
+     *  ``Array``
+     *  Configuration for the nested structure. The array containts objects
+     *  with a title and a children property. The children are objects with
+     *  a title and a name.
+     */
+    groupConfig: null,
+
     createGroup: function(text, groupCode) {
         return {
             text: text,
@@ -24,27 +32,20 @@ Tridex.plugins.NestedLayerTree = Ext.extend(gxp.plugins.LayerTree, {
         var treePanel = Tridex.plugins.NestedLayerTree.superclass.addOutput.call(this, arguments);
         treePanel.enableDD = false;
         var root = treePanel.getRootNode();
-        var node1 = new Ext.tree.TreeNode({
-            text: "Province: de l' Estuaire",
-            expanded: true
-        });
-        node1.appendChild(this.createGroup("Infrastructure", "P1"));
-        node1.appendChild(this.createGroup("Les Détails Des Terres", "P2"));
-        node1.appendChild(this.createGroup("Frontières", "P3"));
-        node1.appendChild(this.createGroup("Point d'intérêt", "P4"));
-        var node2 = new Ext.tree.TreeNode({
-            text: "Pays: Gabon",
-            expanded: true
-        });
-        node2.appendChild(this.createGroup("Infrastructure", "C1"));
-        node2.appendChild(this.createGroup("Les Détails Des Terres", "C2"));
-        node2.appendChild(this.createGroup("Frontières", "C3"));
-        node2.appendChild(this.createGroup("Point d'intérêt", "C4"));
         var overlays = root.childNodes[0];
         var baseLayers = root.childNodes[1];
         root.removeChild(overlays);
-        root.insertBefore(node1, baseLayers);
-        root.insertBefore(node2, baseLayers);
+        for (var i=0, ii=this.groupConfig.length; i<ii; ++i) {
+            var group = this.groupConfig[i];
+            var node = new Ext.tree.TreeNode({
+                text: group.title,
+                expanded: true
+            });
+            for (var j=0, jj=group.children.length; j<jj; ++j) {
+                node.appendChild(this.createGroup(group.children[j].title, group.children[j].name));
+            }
+            root.insertBefore(node, baseLayers);
+        }
         return treePanel;
     }
 
