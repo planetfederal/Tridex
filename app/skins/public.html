@@ -1,5 +1,23 @@
 <% extends ./base.html %>
 
+<% subskin groupConfig %>
+                        groupConfig: [
+                            {
+                                title: i18n("app", "group1Title"),
+                                children: [
+                                    {name: "P1", title: i18n("app", "subGroup1Title")},
+                                    {name: "P2", title: i18n("app", "subGroup2Title")},
+                                    {name: "P3", title: i18n("app", "subGroup3Title")},
+                                    {name: "P4", title: i18n("app", "subGroup4Title")}
+                                ]
+                            }, {
+                                title: i18n("app", "group2Title"),
+                                children: [
+                                    {name: "C3", title: i18n("app", "subGroup3Title")}
+                                ]
+                            }
+                        ],
+
 <% subskin mapConfig %>
                 map: {
                     id: "map",
@@ -31,23 +49,9 @@
                     }, {
                         source: "gabon",
                         name: "gabonprovince:DEP",
+                        visibility: false,
                         title: "Province: DEP",
                         group: "P3"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:Distric",
-                        group: "C4",
-                        title: "Province: Distric"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:Equateur",
-                        group: "C2",
-                        title: "Province: Equateur"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:G-Dept",
-                        group: "C3",
-                        title: "Province: G-Dept"
                     }, {
                         source: "gabon",
                         name: "gabonprovince:G-Prov",
@@ -55,124 +59,95 @@
                         title: "Province: G-Prov"
                     }, {
                         source: "gabon",
-                        name: "gabonprovince:Gares",
-                        group: "C4",
-                        title: "Province: Gares"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:Hydro_imp",
-                        title: "Province: Hydro_imp",
-                        group: "C2"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:Route",
-                        group: "C1"
-                    }, {
-                        source: "gabon",
                         name: "gabonprovince:Village",
+                        visibility: false,
                         title: "Province: Village",
                         group: "P4"
                     }, {
                         source: "gabon",
-                        name: "gabonprovince:capital_dept",
-                        title: "Province: capital_dept",
-                        group: "C4"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:capital_prov",
-                        group: "C4",
-                        title: "Province: capital_prov"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:frontiere",
-                        title: "Province: frontiere",
-                        group: "C3"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:lim_Dept",
-                        group: "C3",
-                        title: "Province: lim_Dept"
-                    }, {
-                        source: "gabon",
-                        name: "gabonprovince:topo_hydro",
-                        title: "Province: topo_hydro",
-                        group: "C4"
-                    }, {
-                        source: "gabon",
                         name: "tridex:Ville",
+                        visibility: false,
                         group: "P3"
                     }, {
                         source: "gabon",
                         name: "tridex:Village",
+                        visibility: false,
                         group: "P4"
                     }, {
                         source: "gabon",
                         name: "tridex:Route",
+                        visibility: false,
                         group: "P1",
                         title: "Route étendu"
                     }, {
                         source: "gabon",
-                        name: "tridex:Chemin_Fer",
-                        group: "C2"
-                    }, {
-                        source: "gabon",
                         name: "tridex:Cote_Pt",
+                        visibility: false,
                         group: "P4"
                     }, {
                         source: "gabon",
                         name: "tridex:Courbe",
+                        visibility: false,
                         group: "P2"
                     }, {
                         source: "gabon",
                         name: "tridex:Point_Ct",
+                        visibility: false,
                         group: "P4"
                     }, {
                         source: "gabon",
                         name: "tridex:Norm_Hydro",
+                        visibility: false,
                         group: "P4"
                     }, {
                         source: "gabon",
                         name: "tridex:Lac",
+                        visibility: false,
                         group: "P2"
                     }, {
                         source: "gabon",
                         name: "tridex:Ile",
+                        visibility: false,
                         group: "P2"
                     }, {
                         source: "gabon",
-                        name: "tridex:Hydro_Poly",
-                        group: "C2"
-                    }, {
-                        source: "gabon",
                         name: "tridex:Hydro_L",
+                        visibility: false,
                         group: "P2"
                     }, {
                         source: "gabon",
                         name: "tridex:Gare",
+                        visibility: false,
                         group: "P4"
                     }, {
                         source: "gabon",
                         name: "parcel:Altimetrie",
+                        visibility: false,
                         group: "P2"
                     }, {
                         source: "gabon",
                         name: "parcel:PT_POLYGO",
+                        visibility: false,
                         group: "P4"
                     }, {
                         source: "gabon",
                         name: "parcel:Parcelles",
+                        visibility: false,
                         group: "P1"
                     }, {
                         source: "gabon",
                         name: "parcel:limits-Arron",
+                        visibility: false,
                         group: "P3"
                     }, {
                         source: "gabon",
                         name: "parcel:routes",
+                        visibility: false,
                         group: "P1"
                     }, {
                         source: "gabon",
                         name: "parcel:saisie",
+                        visibility: false,
                         group: "P1"
                     }, {
                         source: "ol",

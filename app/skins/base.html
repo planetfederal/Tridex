@@ -151,25 +151,7 @@
                 tools: [
                     {
                         ptype: "app_nestedlayertree",
-                        groupConfig: [
-                            {
-                                title: i18n("app", "group1Title"),
-                                children: [
-                                    {name: "P1", title: i18n("app", "subGroup1Title")},
-                                    {name: "P2", title: i18n("app", "subGroup2Title")},
-                                    {name: "P3", title: i18n("app", "subGroup3Title")},
-                                    {name: "P4", title: i18n("app", "subGroup4Title")}
-                                ]
-                            }, {
-                                title: i18n("app", "group2Title"),
-                                children: [
-                                    {name: "C1", title: i18n("app", "subGroup1Title")},
-                                    {name: "C2", title: i18n("app", "subGroup2Title")},
-                                    {name: "C3", title: i18n("app", "subGroup3Title")},
-                                    {name: "C4", title: i18n("app", "subGroup4Title")}
-                                ]
-                            }
-                        ],
+                        <% render groupConfig %>
                         outputConfig: {
                             id: "layertree",
                             tbar: []
