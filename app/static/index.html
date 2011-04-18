@@ -50,14 +50,26 @@
             GeoExt.Lang.add("en", {
                 "app": {
                     "layersTitle": "Layers",
-                    "legendTitle": "Legend"
+                    "legendTitle": "Legend",
+                    "group1Title": "City information",
+                    "group2Title": "Country information",
+                    "subGroup1Title": "Infrastructure",
+                    "subGroup2Title": "Land details",
+                    "subGroup3Title": "Boundaries",
+                    "subGroup4Title": "Point of Interest"
                 }
             });
 
             GeoExt.Lang.add("fr", {
                 "app": {
                     "layersTitle": "Couches",
-                    "legendTitle": "Légende"
+                    "legendTitle": "Légende",
+                    "group1Title": "Province: de l' Estuaire",
+                    "group2Title": "Pays: Gabon",
+                    "subGroup1Title": "Infrastructure",
+                    "subGroup2Title": "Les Détails Des Terres",
+                    "subGroup3Title": "Frontières",
+                    "subGroup4Title": "Point d'intérêt"
                 }
             });
 
@@ -141,20 +153,20 @@
                         ptype: "app_nestedlayertree",
                         groupConfig: [
                             {
-                                title: "Province: de l' Estuaire",
+                                title: i18n("app", "group1Title"),
                                 children: [
-                                    {name: "P1", title: "Infrastructure"},
-                                    {name: "P2", title: "Les Détails Des Terres"},
-                                    {name: "P3", title: "Frontières"},
-                                    {name: "P4", title: "Point d'intérêt"}
+                                    {name: "P1", title: i18n("app", "subGroup1Title")},
+                                    {name: "P2", title: i18n("app", "subGroup2Title")},
+                                    {name: "P3", title: i18n("app", "subGroup3Title")},
+                                    {name: "P4", title: i18n("app", "subGroup4Title")}
                                 ]
                             }, {
-                                title: "Pays: Gabon",
+                                title: i18n("app", "group2Title"),
                                 children: [
-                                    {name: "C1", title: "Infrastructure"},
-                                    {name: "C2", title: "Les Détails Des Terres"},
-                                    {name: "C3", title: "Frontières"},
-                                    {name: "C4", title: "Point d'intérêt"}
+                                    {name: "C1", title: i18n("app", "subGroup1Title")},
+                                    {name: "C2", title: i18n("app", "subGroup2Title")},
+                                    {name: "C3", title: i18n("app", "subGroup3Title")},
+                                    {name: "C4", title: i18n("app", "subGroup4Title")}
                                 ]
                             }
                         ],
