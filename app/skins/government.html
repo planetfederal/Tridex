@@ -1,0 +1,188 @@
+<% extends ./base.html %>
+
+<% subskin mapConfig %>
+                map: {
+                    id: "map",
+                    border: false,
+                    projection: "EPSG:900913",
+                    units: "m",
+                    maxResolution: 156543.0339,
+                    maxExtent: [
+                        -20037508.34, -20037508.34,
+                        20037508.34, 20037508.34
+                    ],
+                    layers: [{
+                        source: "google",
+                        title: "Road Map",
+                        name: "ROADMAP",
+                        group: "background"
+                    }, {
+                        source: "google",
+                        title: "Satellite Map",
+                        name: "SATELLITE",
+                        group: "background",
+                        visibility: false
+                    }, {
+                        source: "google",
+                        title: "Terrain Map",
+                        name: "TERRAIN",
+                        group: "background",
+                        visibility: false
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:DEP",
+                        title: "Province: DEP",
+                        group: "P3"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:Distric",
+                        group: "C4",
+                        title: "Province: Distric"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:Equateur",
+                        group: "C2",
+                        title: "Province: Equateur"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:G-Dept",
+                        group: "C3",
+                        title: "Province: G-Dept"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:G-Prov",
+                        group: "C3",
+                        title: "Province: G-Prov"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:Gares",
+                        group: "C4",
+                        title: "Province: Gares"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:Hydro_imp",
+                        title: "Province: Hydro_imp",
+                        group: "C2"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:Route",
+                        group: "C1"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:Village",
+                        title: "Province: Village",
+                        group: "P4"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:capital_dept",
+                        title: "Province: capital_dept",
+                        group: "C4"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:capital_prov",
+                        group: "C4",
+                        title: "Province: capital_prov"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:frontiere",
+                        title: "Province: frontiere",
+                        group: "C3"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:lim_Dept",
+                        group: "C3",
+                        title: "Province: lim_Dept"
+                    }, {
+                        source: "gabon",
+                        name: "gabonprovince:topo_hydro",
+                        title: "Province: topo_hydro",
+                        group: "C4"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Ville",
+                        group: "P3"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Village",
+                        group: "P4"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Route",
+                        group: "P1",
+                        title: "Route étendu"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Chemin_Fer",
+                        group: "C2"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Cote_Pt",
+                        group: "P4"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Courbe",
+                        group: "P2"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Point_Ct",
+                        group: "P4"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Norm_Hydro",
+                        group: "P4"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Lac",
+                        group: "P2"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Ile",
+                        group: "P2"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Hydro_Poly",
+                        group: "C2"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Hydro_L",
+                        group: "P2"
+                    }, {
+                        source: "gabon",
+                        name: "tridex:Gare",
+                        group: "P4"
+                    }, {
+                        source: "gabon",
+                        name: "parcel:Altimetrie",
+                        group: "P2"
+                    }, {
+                        source: "gabon",
+                        name: "parcel:PT_POLYGO",
+                        group: "P4"
+                    }, {
+                        source: "gabon",
+                        name: "parcel:Parcelles",
+                        group: "P1"
+                    }, {
+                        source: "gabon",
+                        name: "parcel:limits-Arron",
+                        group: "P3"
+                    }, {
+                        source: "gabon",
+                        name: "parcel:routes",
+                        group: "P1"
+                    }, {
+                        source: "gabon",
+                        name: "parcel:saisie",
+                        group: "P1"
+                    }, {
+                        source: "ol",
+                        group: "background",
+                        fixed: true,
+                        type: "OpenLayers.Layer",
+                        args: [
+                            "Aucun", {visibility: false}
+                        ]
+                    }],
+                    center: [1294900, 19763],
+                    zoom: 7
+                }
