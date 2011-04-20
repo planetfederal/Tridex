@@ -22,3 +22,13 @@
 .pipe {
   width: 9px;
 }
+
+#logo {
+    background-image: url(img/tridex_logo.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    width: 143px;
+    height: 60px;
+}
